@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Сторонные приложения
-    'bootstrap3'
+    'bootstrap3',
     # My apps:
     'main'
 ]
@@ -129,3 +129,8 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_URL = '/static/'
+
+# Настройки django-bootstrap3
+BOOTSTRAP3 = {
+'include_jquery': True,
+}
