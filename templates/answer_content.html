@@ -1,0 +1,31 @@
+<div class="row">
+    <div class='col-md-3'>
+        № Соглашения<br>ИНН<br>Наименование учреждения<br>Тип учреждения<br>
+        Количество ПК<br>Установлено VipNet<br>Установлено НСД<br>Установлено АВПО<br>
+        <a href="{% url 'info' %}">Аттестация</a><br>
+        Дата получения аттестата<br>Лицензиат
+    </div>
+
+    <div class='col-md-9'>
+        {{data.sogl}}<br>
+        {{data.inn}}<br>
+        {{data.name}}<br>
+        {% if data.type_uch_id == 1 %}
+            <a href="{% url 'affiliation' %}">{{data.type_uch}}</a><br>
+        {% else %}
+            {{data.type_uch}}<br>
+        {% endif %}
+        {{data.number_PC}}<br>
+        {{data.number_VipNet}}<br>
+        {{data.number_NSD}}<br>
+        {{data.number_AVPO}}<br>
+        {{data.certificate}}</a><br>
+        {{data.date}}<br>
+        {{data.licensee}}
+    </div>
+</div>
+<div>
+    <h3>
+        <a href="{% url 'search' %}"><h4><<< Назад в поиск</h4></a>
+    </h3>
+</div>

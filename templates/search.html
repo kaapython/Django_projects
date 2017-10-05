@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% block header %}
+    <style>
+        #width {
+        width: 400px; /* Ширина поля в пикселах */
+        }
+    </style>
+
+<div class='jumbotron'>
+    <h3>Поиск информации</h3>
+</div>
+{% endblock header %}
+{% block content %}
+<p class='lead'>
+    Для поиска информации о состоянии защищенности АИС ФХД своего учреждения, введите:<br>
+    <u>№ Соглашения</u> или <u>ИНН учреждения</u> в соответствующие формы поиска.
+</p>
+<hr>
+<h4>Общая информация:</h4>
+<div class='row' align="left">
+    <div class='col-md-6'>
+        <ul>
+            <li>В базе данных загружено учреждений: </li>
+        </ul>
+    </div>
+    <div class='col-md-6'>
+        <ul>
+            <li>{{ data_count }}</li>
+        </ul>
+    </div>
+</div>
+<div class='row' align="left">
+    <div class='col-md-6'>
+        <ul>
+            <li>Из них получили аттестат соответствия требованиям: </li>
+        </ul>
+    </div>
+    <div class='col-md-6'>
+        <ul>
+            <li>{{ data_cert }}</li>
+        </ul>
+    </div>
+</div>
+
+<hr>
+<br>
+    <div class='row' align="left">
+        <div class='col-md-6'>
+            <nav class="navbar navbar-light bg-light">
+                <form class="form-inline" action="{% url 'answer_sogl' %}" method="get">
+                    <input class="form-control mr-sm-2" type="text" placeholder="№ Соглашения"
+                           aria-label="Search" name="search_sogl" id="width">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Найти</button>
+                </form>
+            </nav>
+        </div>
+        <div class='col-md-6'>
+            <nav class="navbar navbar-light bg-light">
+                <form class="form-inline" action="{% url 'answer_inn' %}" method="get">
+                    <input class="form-control mr-sm-2" type="text" placeholder="ИНН учреждения"
+                           aria-label="Search" name="search_inn" id="width">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Найти</button>
+                </form>
+            </nav>
+        </div>
+        <div>
+
+        </div>
+    </div>
+
+{% endblock content %}

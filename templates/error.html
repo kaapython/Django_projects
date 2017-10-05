@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block header %}
+<div class='jumbotron'>
+    <h3><img src="{% static 'img/error.jpg' %}" width="60" height="60" alt="Err"> Ошибка поиска</h3>
+</div>
+{% endblock header %}
+
+{% block content %}
+<div class="row">
+    <div class='col-md-10'>
+        <h2>По Вашему запросу, ничего не найдено</h2>
+        <ul>
+            <li>
+                Возможно Вы ввели неверные/неточные данные, или Вашего учреждения нет в базе.
+            </li>
+            <li>
+                Вернитесь назад в поиск и повторите запрос.
+            </li>
+            <li>
+                Отправьте запрос в Техническую поддержку с описанием проблемы:
+                <form action="mailto:1c@govirk.ru" enctype="text/plain">
+                    <p><input type="submit" value="Написать письмо"></p>
+                </form>
+            </li>
+        </ul>
+    </div>
+
+    <div class='col-md-2'>
+
+    </div>
+</div>
+<div>
+    <h3>
+        <a href="{% url 'search' %}"><h4><<< Назад в поиск</h4></a>
+    </h3>
+</div>
+{% endblock content %}

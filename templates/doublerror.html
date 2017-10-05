@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block header %}
+<div class='jumbotron'>
+    <h3><img src="{% static 'img/error.jpg' %}" width="60" height="60" alt="Err"> Двойная запись</h3>
+</div>
+{% endblock header %}
+
+{% block content %}
+<div class="row">
+    <div class='col-md-10'>
+        <h3>По Вашему запросу, в базе данных обнаружилось задвоение.</h3>
+        <h4>Для устранения двойной записи, обратитесь в Службу технической поддержки
+            пользователей, <br>доступным для Вас способом:</h4>
+        <ul>
+            <li>
+                по телефону +7 (3952) 286-888;
+            </li>
+            <li>
+                по электронной почте:
+                <form action="mailto:1c@govirk.ru" enctype="text/plain">
+                    <p><input type="submit" value="Написать письмо"></p>
+                </form>
+            </li>
+        </ul>
+    </div>
+
+    <div class='col-md-2'>
+
+    </div>
+</div>
+
+{% endblock content %}

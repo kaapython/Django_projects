@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% block header %}
+<div class='jumbotron'>
+    <h3>Авторизация</h3>
+</div>
+{% endblock header %}
+{% block content %}
+
+<h4>Для авторизации введите логин (Username) и пароль (Password) от системы поддержки пользователей
+	"1С: Менеджер Сервиса"</h4><br>
+{% if form.errors %}
+<p>Ваши имя и пароль не совпадают. Пожалуйста, попробуйте снова.</p>
+{% endif %}
+<form method="post" action="{% url 'login' %}">
+	{% csrf_token %}
+	{% bootstrap_form form %}
+
+	{% buttons %}
+	<button name="submit" class="btn btn-primary">Вход</button>
+		{% endbuttons %}
+	<input type="hidden" name="next" value="{% url 'search' %}" />
+</form>
+<br><h3>Внимание!</h3><br>
+Если Вам не удалось авторизоваться, обратитесь в Службу поддержки пользователей, отправив письмо следующего формата:
+<ul>
+    <li>Тема письма: Авторизация</li>
+    <li>Содержание письма: Наименование учреждения, ФИО сотрудника, учетная запись.</li>
+</ul>
+<form action="mailto:1c@govirk.ru" enctype="text/plain">
+    <p><input type="submit" value="Написать письмо"></p>
+</form>
+<br>Или позвонив по телефону технической поддержки пользователей: т. +7 (3952) 286-888.
+
+{% endblock content %}

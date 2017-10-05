@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% block header %}
+
+
+<div class='jumbotron'>
+    <h3>Информация о подведомственных учреждениях</h3>
+</div>
+{% endblock header %}
+{% block content %}
+{{data_podved.name}}<br>
+Список подведов:
+{% for i in data_podved %}
+{% endfor %}
+{% endblock content %}
